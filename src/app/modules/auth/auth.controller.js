@@ -21,7 +21,7 @@ const AuthController = {
         .status(201)
         .json({
           message: "User created successfully",
-          user: { id: newUser._id, name: newUser.name },
+          user: { id: newUser._id, name: newUser.name, token },
         });
     } catch (error) {
       next(error);
@@ -48,7 +48,7 @@ const AuthController = {
         .status(200)
         .json({
           message: "Login successful",
-          user: { id: user._id, name: user.name },
+          user: { id: user._id, name: user.name, jwt: token },
         });
     } catch (error) {
       next(error);
